@@ -3,7 +3,7 @@ const players = ["O", "X"]
 let turn = 0
 let sendGame = (data) => {
     let player = players[turn]
-    //console.log(`Juega: ${player}`)
+    console.log(`Juega: ${player}`)
     let x = data.target.classList[1]
     let y = data.target.classList[2] ? data.target.classList[2] : x
     let val = data.data.toUpperCase() || ""
@@ -18,7 +18,7 @@ let sendGame = (data) => {
         turn = turn >= 1 ? 0 : +1
     }
     else {
-        data.path[0].value = ""
+        data.value = ""
         alert(`Es el turno de: ${player}`)
     }
 }
@@ -26,6 +26,7 @@ let validateVal = (val, player) => {
     return val === player ? true : false
 }
 let win = (triki) => {
+    //TODO
     triki.forEach(e => {
         for (let i = 0; i < e.length; i++) {
             if (i >= 2) {
